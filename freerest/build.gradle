@@ -13,6 +13,7 @@ java {
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 ext {
@@ -24,6 +25,10 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	// https://mvnrepository.com/artifact/com.google.cloud.tools/appengine-maven-plugin
+implementation 'com.google.cloud.tools:appengine-maven-plugin:2.8.0'
+	
 }
 
 dependencyManagement {
