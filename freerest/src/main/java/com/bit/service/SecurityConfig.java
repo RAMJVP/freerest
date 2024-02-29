@@ -27,4 +27,21 @@ public class SecurityConfig {
 	                .formLogin(withDefaults())
 	                .build();
 	    }
+	  
+	  
+	  
+	  
+		/*
+		 * .oauth2Login(oauth2Login -> oauth2Login.loginPage(
+		 * OAuth2AuthorizationRequestRedirectFilter.
+		 * DEFAULT_AUTHORIZATION_REQUEST_BASE_URI + "/messages-client-oidc" ))
+		 */
+		/*
+		 * @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http)
+		 * throws Exception { http .authorizeRequests(authorizeRequests ->
+		 * authorizeRequests.anyRequest().authenticated()) .oauth2Login(oauth2Login ->
+		 * oauth2Login.loginPage( OAuth2AuthorizationRequestRedirectFilter.
+		 * DEFAULT_AUTHORIZATION_REQUEST_BASE_URI + "/messages-client-oidc" ))
+		 * .oauth2Client(Customizer.withDefaults()); return http.build(); }
+		 */
 }
