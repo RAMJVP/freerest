@@ -196,6 +196,9 @@ public class FreeTestCon {
 		catch (IOException e) {
 			e.printStackTrace();
 			System.err.println("saveToken err "+e.getCause());
+			//http://localhost:8080/folderimg
+			//freerest.com
+			//http://freerest.com/folderimg
 		}
 		
 	}
