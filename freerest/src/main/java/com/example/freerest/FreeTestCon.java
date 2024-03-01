@@ -5,6 +5,8 @@ import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.bit.service.GService;
 import com.bit.service.GoogleAuth;
+import com.bit.service.RestConfig;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
 import com.google.api.services.drive.model.File;
@@ -37,7 +40,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RestController
 public class FreeTestCon {
 	
-	
+	private static final Logger logger = LoggerFactory.getLogger(RestConfig.class);
 	@Autowired
 	private GService gService;
 	
@@ -102,7 +105,7 @@ public class FreeTestCon {
 	
 	@GetMapping("folderimg")
 	public List<File> folderimg() {
-		System.out.println("req### folderimg");
+		logger.info("req### folderimg");
 		System.out.println("req"+i++);
 		System.out.println("req"+ab);
 		try {
