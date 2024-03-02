@@ -1,5 +1,6 @@
 package com.bit.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -54,10 +55,16 @@ public class GoogleAuth {
 			
 			InputStream in = new ClassPathResource(CREDENTIALS_FILE_PATH).getInputStream();
 			GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-
+			
+			File tokenFolder = new File("tokens");
+		    if (!tokenFolder.exists()) {
+		        tokenFolder.mkdirs();
+		    }
+		    
+		    
 			 flow = new GoogleAuthorizationCodeFlow.Builder(
 					GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets, SCOPES)
-					.setDataStoreFactory(new FileDataStoreFactory(new java.io.File("tokens"))).setAccessType("offline")
+					.setDataStoreFactory(new FileDataStoreFactory(tokenFolder)).setAccessType("offline")//new java.io.File("tokens")
 					.build();
 			
 					} catch (Exception e) {
