@@ -40,7 +40,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RestController
 public class FreeTestCon {
 	
-	private static final Logger logger = LoggerFactory.getLogger(RestConfig.class);
+	private static final Logger logger = LoggerFactory.getLogger(FreeTestCon.class);
 	@Autowired
 	private GService gService;
 	
