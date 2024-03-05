@@ -21,8 +21,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 //import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
-
-
+//make to folder token
 @Component
 public class GoogleAuth {
 
@@ -35,16 +34,24 @@ public class GoogleAuth {
 	private static final List<String> SCOPES = Collections.singletonList("https://www.googleapis.com/auth/drive");
 
 	public static Credential getCredentials() throws IOException, GeneralSecurityException {
+		 LocalServerReceiver receiver=null;
+		try {
 		
 		
-		
-		 LocalServerReceiver receiver = new LocalServerReceiver
-	                .Builder().setPort(2424)
+		 receiver = new LocalServerReceiver
+	                .Builder().setPort(2444)
 	                .build();
 		 
 	
-		 //.setCallbackPath("/login/oauth2/code/google")
-		return new AuthorizationCodeInstalledApp(authorizationCodeFlow(),receiver).authorize("Web client 2");//user
+		 //.setCallbackPath("/login/oauth2/code/google")//change to 2424
+		return new AuthorizationCodeInstalledApp(authorizationCodeFlow(),receiver).authorize("Web client 2");//user}
+		
+		}finally {
+			if(receiver!=null) {
+				receiver.stop();
+			}
+				
+		}
 	}
 	
 	
@@ -66,8 +73,8 @@ public class GoogleAuth {
 		    
 			 flow = new GoogleAuthorizationCodeFlow.Builder(
 					GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets, SCOPES)
-					.setDataStoreFactory(new FileDataStoreFactory(tokenFolder)).setAccessType("offline")//new java.io.File("tokens")
-					.build();
+					.setDataStoreFactory(new CustomDataStoreFactory()).setAccessType("offline")//new java.io.File("tokens")
+					.build();//new FileDataStoreFactory(tokenFolder)
 			
 					} catch (Exception e) {
 			e.printStackTrace();
