@@ -62,12 +62,10 @@ public class GoogleAuth {
 			GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 			
 			 System.out.println(" inside created folder v15:32 ");
-			File tokenFolder = new File("/workspace/tokens");
-		    if (!tokenFolder.exists()) {
-		        tokenFolder.mkdirs();
-		        System.out.println("created folder "+tokenFolder);
-		    }
-		    
+				/*
+				 * File tokenFolder = new File("/workspace/tokens"); if (!tokenFolder.exists())
+				 * { tokenFolder.mkdirs(); System.out.println("created folder "+tokenFolder); }
+				 */    
 		    
 			 flow = new GoogleAuthorizationCodeFlow.Builder(
 					GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets, SCOPES)
