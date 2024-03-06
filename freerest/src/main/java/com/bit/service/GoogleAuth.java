@@ -39,6 +39,7 @@ public class GoogleAuth {
 	                .Builder().setPort(2000)
 	                .build();
 		 
+		 System.out.println(" inside created folder v15:32 2000 "+receiver.getRedirectUri());
 	//setHost("alert-hall-412514.de.r.appspot.com")
 		 //.setCallbackPath("/login/oauth2/code/google")//change to 2424
 		return new AuthorizationCodeInstalledApp(authorizationCodeFlow(),receiver).authorize("Web client 2");//user}
