@@ -1,6 +1,5 @@
 package com.bit.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -37,10 +36,10 @@ public class GoogleAuth {
 			System.out.println(" inside created folder v15:32 2000");
 		
 		 receiver = new LocalServerReceiver
-	                .Builder().setHost("alert-hall-412514.de.r.appspot.com").setPort(2000)
+	                .Builder().setPort(2000)
 	                .build();
 		 
-	
+	//setHost("alert-hall-412514.de.r.appspot.com")
 		 //.setCallbackPath("/login/oauth2/code/google")//change to 2424
 		return new AuthorizationCodeInstalledApp(authorizationCodeFlow(),receiver).authorize("Web client 2");//user}
 		
